@@ -10,13 +10,13 @@ int minstep, w, h, to[4][2] = {{0,1}, {1,0}, {0,-1}, {-1,0}};//定义方向 东 
 bool mark[MAXIN+2][MAXIN+2];//定义标记数组
 
 void Search(int now_x, int now_y, int end_x, int end_y, int step, int f){
-    if(step > minstep) return;
+    if(step > minstep) return;               //终止条件
     if(now_x == end_x && now_y == end_y){
         if(minstep > step)
             minstep = step;
-        return;
-    }
-    for(int i = 0; i < 4; i++){
+        return;            //终止条件
+    }               //判断上一次的情况
+    for(int i = 0; i < 4; i++){   //从传参点开始走下一步
         int x = now_x + to[i][0];
         int y = now_y + to[i][1];
         if((x > -1) && (x < w+2) && (y > -1) && (y < h+1) && (((board[y][x] == ' ') && (mark[y][x] == false)) || ((x == end_x) && (y == end_y) && (board[y][x] == 'X')))){
