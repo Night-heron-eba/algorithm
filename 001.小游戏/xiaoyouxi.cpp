@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string>
+#include <memory.h>
 using namespace std;
 #define MAXIN 75
 
